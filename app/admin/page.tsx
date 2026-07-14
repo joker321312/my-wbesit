@@ -7,6 +7,7 @@ import {
   Upload, ExternalLink, Menu, Lock, CheckCircle, AlertTriangle, Eye, UserCheck, Calendar
 } from "lucide-react";
 import { getVisitorStats } from "@/lib/visitor-tracker";
+import { getRealViews } from "@/lib/real-tracker";
 
 // Types
 interface Product {
@@ -63,6 +64,8 @@ export default function AdminPage() {
   const [uploadName, setUploadName] = useState("");
   const [uploadMsg, setUploadMsg] = useState("");
 
+  const [realViews, setRealViews] = useState<number | null>(null);
+
   // Crypto settings
   const [cryptoSettings, setCryptoSettings] = useState({
     btc: "bc1qyourbtcaddresshere",
@@ -71,6 +74,12 @@ export default function AdminPage() {
     usdt_trc20: "TYyourtrc20addresshere",
     ltc: "ltc1yourltcaddresshere",
   });
+
+  useEffect(() => {
+    getRealViews().then(setRealViews);
+    const interval = setInterval(() => getRealViews().then(setRealViews), 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const stored = localStorage.getItem("th_products");
@@ -252,15 +261,12 @@ export default function AdminPage() {
           {tab === "dashboard" && (
             <div>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                {(() => {
-                  const stats = getVisitorStats();
-                  return [
-                    { label: "Total Views", value: stats.views.toLocaleString(), icon: Eye, color: "text-purple-500" },
-                    { label: "Unique Visitors", value: stats.uniqueVisitors.toLocaleString(), icon: UserCheck, color: "text-cyan-500" },
-                    { label: "Today", value: stats.today.toLocaleString(), icon: Calendar, color: "text-green-500" },
-                    { label: "Revenue", value: `$${totalRevenue.toFixed(2)}`, icon: TrendingUp, color: "text-orange-500" },
-                  ];
-                })().map((s, i) => {
+                {[
+                  { label: "Total Views", value: realViews !== null ? realViews.toLocaleString() : "...", icon: Eye, color: "text-purple-500" },
+                  { label: "Unique Visitors", value: getVisitorStats().uniqueVisitors.toLocaleString(), icon: UserCheck, color: "text-cyan-500" },
+                  { label: "Live Now", value: "—", icon: Calendar, color: "text-green-500" },
+                  { label: "Revenue", value: `$${totalRevenue.toFixed(2)}`, icon: TrendingUp, color: "text-orange-500" },
+                ].map((s, i) => {
                   const Icon = s.icon;
                   return (
                     <div key={i} className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
@@ -296,19 +302,17 @@ export default function AdminPage() {
                   <Eye className="w-4 h-4 text-purple-500" /> Real-Time Analytics
                 </h3>
                 <p className="text-xs text-zinc-500 mb-3">
-                  LocalStorage tracking only counts your own visits. To see <span className="text-purple-400">real visitor data</span> from real people:
+                  <span className="text-purple-400">Total Views</span> now shows real visitor counts from all users via CountAPI (updates every 10s).
+                </p>
+                <p className="text-xs text-zinc-500 mb-3">
+                  For detailed analytics (location, pages, devices), set up Google Analytics:
                 </p>
                 <ol className="text-xs text-zinc-400 space-y-1.5 list-decimal list-inside">
                   <li>Go to <a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer" className="text-cyan-500 underline">analytics.google.com</a> and create a GA4 property</li>
                   <li>Get your <span className="text-purple-400">Measurement ID</span> (starts with <code className="text-[10px] bg-zinc-800 px-1 rounded">G-</code>)</li>
                   <li>Open <code className="text-[10px] bg-zinc-800 px-1 rounded">components/Analytics.tsx</code> and replace <code className="text-[10px] bg-zinc-800 px-1 rounded">G-XXXXXXXXXX</code> with your ID</li>
-                  <li>Deploy to production — the script only runs on live domain, not localhost</li>
-                  <li>Check <span className="text-purple-400">Realtime</span> report in Google Analytics for live visitors</li>
+                  <li>Check <span className="text-purple-400">Realtime</span> report in Google Analytics</li>
                 </ol>
-                <div className="mt-3 flex items-center gap-2 text-[10px] text-zinc-600 bg-zinc-950/50 rounded-lg p-3 border border-zinc-800">
-                  <AlertTriangle className="w-3 h-3 text-yellow-500 shrink-0" />
-                  The visitor stats above (Total Views, Unique Visitors, Today) are from localStorage and only count <strong className="text-zinc-400">your</strong> browser.
-                </div>
               </div>
               <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
                 <h3 className="text-sm font-semibold text-white mb-3">Recent Orders</h3>
