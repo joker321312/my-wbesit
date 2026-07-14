@@ -1,0 +1,64 @@
+//
+//  AnimationCardView.swift
+//  SwiftUI-Animations
+//
+//  Created by Shubham Singh on 18/03/26.
+//  Copyright © 2026 Shubham Singh. All rights reserved.
+//
+
+import SwiftUI
+
+struct AnimationCardView: View {
+
+    // MARK: - Variables
+    let item: AnimationItem
+
+    // MARK: - Views
+    var body: some View {
+        VStack(spacing: 12) {
+            Image(systemName: item.systemIcon)
+                .font(.system(size: 32, weight: .semibold))
+                .foregroundStyle(item.iconColor)
+                .frame(width: 60, height: 60)
+                .padding(6)
+                .background {
+                    Circle()
+                        .fill(item.iconColor.gradient)
+                        .opacity(0.2)
+                }
+                .overlay(alignment: .topTrailing) {
+                    if item.isNew {
+                        newTag
+                            .offset(x: 4, y: -2)
+                    }
+                }
+
+            Text(item.title)
+                .font(ClashGrotestk.semibold.font(size: 14))
+                .tracking(0.1)
+                .foregroundStyle(Color.label)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+                .minimumScaleFactor(0.8)
+        }
+        .frame(maxWidth: .infinity)
+    }
+
+    private var newTag: some View {
+        Text("NEW")
+            .font(ClashGrotestk.semibold.font(size: 8))
+            .tracking(1)
+            .foregroundStyle(Color.white)
+            .padding(.horizontal, 6)
+            .padding(.vertical, 3)
+            .background(
+                Capsule()
+                    .fill(Color.accentColor)
+            )
+    }
+}
+
+#Preview {
+    AnimationCardView(item: AnimationItem.all[0])
+        .padding()
+}

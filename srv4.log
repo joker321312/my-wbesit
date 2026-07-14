@@ -1,0 +1,60 @@
+  ▲ Next.js 15.0.0
+  - Local:        http://localhost:3001
+
+ ✓ Starting...
+ ✓ Ready in 1454ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2.4s (533 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/90d999c8eddf0c8d.webpack.hot-update.json 404 in 2525ms
+ ✓ Compiled / in 372ms (586 modules)
+ GET / 200 in 393ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/90d999c8eddf0c8d.webpack.hot-update.json 404 in 18ms
+ GET / 200 in 32ms
+ GET / 200 in 25ms
+ GET / 200 in 43ms
+ ✓ Compiled in 437ms (292 modules)
+ GET / 200 in 72ms
+ GET / 200 in 66ms
+ ✓ Compiled /shop in 390ms (581 modules)
+ GET /shop 200 in 545ms
+ GET / 200 in 41ms
+ ⨯ ./app/layout.tsx:3:1
+Module not found: Can't resolve '@/components/VisitorTracker'
+[0m [90m 1 |[39m [36mimport[39m type { [33mMetadata[39m } [36mfrom[39m [32m"next"[39m[33m;[39m[0m
+[0m [90m 2 |[39m [36mimport[39m [32m"./globals.css"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m [33mVisitorTracker[39m [36mfrom[39m [32m"@/components/VisitorTracker"[39m[33m;[39m[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 4 |[39m[0m
+[0m [90m 5 |[39m [36mexport[39m [36mconst[39m metadata[33m:[39m [33mMetadata[39m [33m=[39m {[0m
+[0m [90m 6 |[39m   title[33m:[39m [32m"ToolHub | Premium Gaming Arsenal"[39m[33m,[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\DumpStack.log.tmp'
+Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\pagefile.sys'
+Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\swapfile.sys'
+ ○ Compiling /_error ...
+Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\DumpStack.log.tmp'
+Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\pagefile.sys'
+Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\swapfile.sys'
+Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\DumpStack.log.tmp'
+Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\pagefile.sys'
+Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\swapfile.sys'
+ ✓ Compiled /_error in 2.7s (838 modules)
+ GET / 500 in 5675ms
+ GET / 200 in 164ms
+ GET / 200 in 95ms
+ GET / 200 in 90ms
+ GET / 200 in 81ms
+ GET / 200 in 74ms
+ GET / 200 in 88ms
+ GET / 200 in 91ms
+ GET / 200 in 200ms
+ ✓ Compiled in 284ms (492 modules)
+ GET / 200 in 71ms
+ GET / 200 in 53ms
+ ✓ Compiled in 319ms (492 modules)
+ GET / 200 in 62ms
+ GET / 200 in 41ms
+[?25h
