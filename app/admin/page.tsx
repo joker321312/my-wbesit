@@ -108,7 +108,7 @@ export default function AdminPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === "admin123") {
+    if (password === "Kingkelati123") {
       setLoggedIn(true);
       setLoginError(false);
     } else {
@@ -198,7 +198,7 @@ export default function AdminPage() {
           />
           {loginError && <p className="text-red-400 text-xs mb-3 flex items-center gap-1"><AlertTriangle className="w-3 h-3" /> Wrong password</p>}
           <button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-3 rounded-xl transition-colors">Login</button>
-          <p className="text-[10px] text-zinc-700 text-center mt-3">Default: admin123</p>
+          <p className="text-[10px] text-zinc-700 text-center mt-3">Default: Kingkelati123</p>
         </form>
       </div>
     );
