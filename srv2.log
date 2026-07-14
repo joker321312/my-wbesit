@@ -1,0 +1,25 @@
+  ▲ Next.js 15.0.0
+  - Local:        http://localhost:3001
+
+ ✓ Starting...
+ ✓ Ready in 1347ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.6s (589 modules)
+ GET / 200 in 2784ms
+ ✓ Compiled in 533ms (589 modules)
+ GET / 200 in 82ms
+ ✓ Compiled in 297ms (589 modules)
+ GET / 200 in 33ms
+ ✓ Compiled in 351ms (589 modules)
+ GET / 200 in 28ms
+ ✓ Compiled in 271ms (589 modules)
+ GET / 200 in 42ms
+ ✓ Compiled in 582ms (585 modules)
+ GET / 200 in 39ms
+ ✓ Compiled in 300ms (571 modules)
+ GET / 200 in 37ms
+ ✓ Compiled in 224ms (571 modules)
+ GET / 200 in 32ms
+[?25h
+
+C:\Users\kelat\Downloads\WEBSITE>
