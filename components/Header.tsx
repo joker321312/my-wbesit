@@ -40,7 +40,7 @@ export default function Header() {
             <nav className="hidden md:flex items-center gap-6 text-sm font-bold" style={{ color: "#8b8fa3" }}>
               <a href="/" className="link-underline" style={{ color: "#8b5cf6", textDecoration: "none" }}>Home</a>
               <a href="/shop" className="link-underline" style={{ color: "#8b8fa3", textDecoration: "none" }}>Arsenal</a>
-              <a href="/admin" className="link-underline" style={{ color: "#8b8fa3", textDecoration: "none" }}>Command</a>
+               <a href="/admin" className="link-underline" style={{ color: "#8b8fa3", textDecoration: "none" }}>Admin Panel</a>
             </nav>
           </div>
           <div className="flex items-center gap-3">
@@ -59,7 +59,7 @@ export default function Header() {
           <div className="flex flex-col gap-3">
             <a href="/" style={{ color: "#8b5cf6", textDecoration: "none", fontWeight: 700, fontSize: 14 }}>Home</a>
             <a href="/shop" style={{ color: "#8b8fa3", textDecoration: "none", fontWeight: 700, fontSize: 14 }}>Arsenal</a>
-            <a href="/admin" style={{ color: "#8b8fa3", textDecoration: "none", fontWeight: 700, fontSize: 14 }}>Command</a>
+            <a href="/admin" style={{ color: "#8b8fa3", textDecoration: "none", fontWeight: 700, fontSize: 14 }}>Admin Panel</a>
             <a href="https://discord.com/users/kingkelati123" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: "100%", marginTop: 4 }}>
               💬 DM kingkelati123
             </a>
